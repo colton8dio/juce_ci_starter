@@ -17,28 +17,28 @@ jobs:
           uses: actions/checkout@v2
           with:
               repository: juce-framework/JUCE
-              path: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE
+              path: ${{runner.workspace}}/JUCE
 
         - name: "(JUCE) Create Build Environment"
           working-directory: ${{runner.workspace}}/garm/JUCE
-          run: cmake -E make_directory ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE/build
+          run: cmake -E make_directory ${{runner.workspace}}JUCE/build
 
         - name: "(JUCE) Configuration"
           working-directory: ${{runner.workspace}}/garm/JUCE/build
-          run: cmake ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE
+          run: cmake ${{runner.workspace}}/JUCE
 
         - name: "(JUCE) Build"
-          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE/build
+          working-directory: ${{runner.workspace}}/JUCE/build
           run: cmake --build
 
         - name: "(JuceCIStarter) Create Build Environment"
-          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter
-          run: cmake -E make_directory ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter
+          run: cmake -E make_directory ${{runner.workspace}}/juce_ci_starter/build
 
         - name: "(JuceCIStarter) Configuration"
-          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/build
-          run: cmake ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter
+          working-directory: ${{runner.workspace}}/juce_ci_starter/build
+          run: cmake ${{runner.workspace}}/juce_ci_starter
 
         - name: "(JuceCIStarter) Build"
-          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter/build
           run: cmake --build --config $BUILD_TYPE
