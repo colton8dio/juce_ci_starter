@@ -29,8 +29,7 @@ jobs:
 
         - name: "(JUCE) Build"
           working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE
-          run: cmake -B build -DJUCE_BUILD_EXTRAS=ON .
-               cmake --build build --target Projucer
+          run: cmake --build build --target Projucer
 
         - name: "(JuceCIStarter) Create Build Environment"
           working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter
