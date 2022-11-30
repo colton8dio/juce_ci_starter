@@ -28,8 +28,8 @@ jobs:
           run: cmake .
 
         - name: "(JUCE) Build"
-          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE/build
-          run: cmake --build .
+          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE
+          run: cmake --build build --target all
 
         - name: "(JuceCIStarter) Create Build Environment"
           working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter
