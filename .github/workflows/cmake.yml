@@ -1,0 +1,44 @@
+name: JuceCIStarter
+
+on: [push]
+
+env:
+    BUILD_TYPE: Release
+
+jobs:
+    build:
+      runs-on: self-hosted
+
+      steps:
+        - name: "Preperation"
+          uses: actions/checkout@v2
+
+        - name: "(JUCE) Clone Repository"
+          uses: actions/checkout@v2
+          with:
+              repository: juce-framework/JUCE
+              path: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE
+
+        - name: "(JUCE) Create Build Environment"
+          working-directory: ${{runner.workspace}}/garm/JUCE
+          run: cmake -E make_directory ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE/build
+
+        - name: "(JUCE) Configuration"
+          working-directory: ${{runner.workspace}}/garm/JUCE/build
+          run: cmake ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE
+
+        - name: "(JUCE) Build"
+          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/JUCE/build
+          run: cmake --build
+
+        - name: "(JuceCIStarter) Create Build Environment"
+          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter
+          run: cmake -E make_directory ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/build
+
+        - name: "(JuceCIStarter) Configuration"
+          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/build
+          run: cmake ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter
+
+        - name: "(JuceCIStarter) Build"
+          working-directory: ${{runner.workspace}}/Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/juce_ci_starter/build
+          run: cmake --build --config $BUILD_TYPE
