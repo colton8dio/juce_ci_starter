@@ -17,11 +17,11 @@ jobs:
           uses: actions/checkout@v2
           with:
               repository: juce-framework/JUCE
-              path: ${{runner.workspace}}/JUCE
+              path: ${{runner.workspace}}/juce_ci_starter/JUCE
 
         - name: "(JUCE) Create Build Environment"
-          working-directory: ${{runner.workspace}}/JUCE
-          run: cmake -E make_directory  /JUCE/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE
+          run: cmake -E make_directory  /juce_ci_starter/JUCE/build
 
         - name: "(JUCE) Configuration"
           working-directory: ${{runner.workspace}}/garm/JUCE/build
