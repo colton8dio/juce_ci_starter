@@ -20,7 +20,7 @@ jobs:
               path: ${{runner.workspace}}/juce_ci_starter/JUCE
 
         - name: "(JUCE) Create Build Environment"
-          working-directory: /Volumes/iMacPro_Ext/Local\ Storage/8Dio/JUCE_CI/actions-runner/_work/juce_ci_starter/juce_ci_starter/JUCE
+          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE
           run: cmake -E make_directory  /build
 
         - name: "(JUCE) Configuration"
