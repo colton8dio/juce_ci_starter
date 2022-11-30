@@ -1,4 +1,4 @@
-# Declare minimum version for CMake
+# Declare minimum version for CMakes
 cmake_minimum_required(VERSION 3.15)
 
 # Declare project target and version
