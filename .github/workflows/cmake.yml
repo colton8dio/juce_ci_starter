@@ -41,4 +41,4 @@ jobs:
 
         - name: "(JuceCIStarter) Build"
           working-directory: ${{runner.workspace}}/juce_ci_starter/build
-          run: cmake --build --config 
+          run: cmake --build  
