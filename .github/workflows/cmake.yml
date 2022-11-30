@@ -32,8 +32,8 @@ jobs:
           run: cmake -S . -B build
 
         - name: "(JuceCIStarter) Create Build Environment"
-          working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter
-          run: cmake -E make_directory ${{runner.workspace}}/juce_ci_starter/juce_ci_starter/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter
+          run: cmake -E make_directory ${{runner.workspace}}/juce_ci_starter/build
 
         - name: "(JuceCIStarter) Configuration"
           working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter/build
