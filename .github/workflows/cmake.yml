@@ -24,20 +24,20 @@ jobs:
           run: cmake -E make_directory  ${{runner.workspace}}/juce_ci_starter/JUCE/build
 
         - name: "(JUCE) Configuration"
-          run: cmake ${{runner.workspace}}/JUCE
+          run: cmake ${{runner.workspace}}/juce_ci_starter/JUCE
 
         - name: "(JUCE) Build"
-          working-directory: ${{runner.workspace}}/JUCE/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE/build
           run: cmake --build
 
         - name: "(JuceCIStarter) Create Build Environment"
-          working-directory: ${{runner.workspace}}/juce_ci_starter
-          run: cmake -E make_directory ${{runner.workspace}}/juce_ci_starter/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter
+          run: cmake -E make_directory ${{runner.workspace}}/juce_ci_starter/juce_ci_starter/build
 
         - name: "(JuceCIStarter) Configuration"
-          working-directory: ${{runner.workspace}}/juce_ci_starter/build
-          run: cmake ${{runner.workspace}}/juce_ci_starter
+          working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter/build
+          run: cmake ${{runner.workspace}}/juce_ci_starter/juce_ci_starter
 
         - name: "(JuceCIStarter) Build"
-          working-directory: ${{runner.workspace}}/juce_ci_starter/build
+          working-directory: ${{runner.workspace}}/juce_ci_starter/juce_ci_starter/build
           run: cmake --build --config $BUILD_TYPE
