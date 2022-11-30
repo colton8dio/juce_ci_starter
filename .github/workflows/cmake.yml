@@ -20,7 +20,7 @@ jobs:
               path: ${{runner.workspace}}/juce_ci_starter/JUCE
 
         - name: "(JUCE) Create Build Environment"
-          working-directory: ${{runner.workspace}}/JUCE
+          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE
           run: cmake -E make_directory ${{runner.workspace}}JUCE/build
 
         - name: "(JUCE) Configuration"
