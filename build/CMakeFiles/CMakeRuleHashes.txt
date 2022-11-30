@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-e6b144a4b60d92e845540cdea1fd7135 JuceCIStarter/JuceCIStarter_artefacts/JuceLibraryCode/JuceCIStarter_AU/PkgInfo
-ab9ea1f5fec147d6e0f58f16f558835e JuceCIStarter/JuceCIStarter_artefacts/JuceLibraryCode/JuceCIStarter_VST3/PkgInfo
-4d2a4c2eee4524398bc329362bf236d8 JuceCIStarter/JuceCIStarter_artefacts/JuceLibraryCode/JuceHeader.h
