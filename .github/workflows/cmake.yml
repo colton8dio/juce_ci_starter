@@ -24,7 +24,8 @@ jobs:
           run: cmake -E make_directory  ${{runner.workspace}}/juce_ci_starter/JUCE/build
 
         - name: "(JUCE) Configuration"
-          run: cmake ${{runner.workspace}}/juce_ci_starter/JUCE
+          working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE
+          run: cmake .
 
         - name: "(JUCE) Build"
           working-directory: ${{runner.workspace}}/juce_ci_starter/JUCE/build
